@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceAge™ - Revolutionary AI for Oncology</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .game-container {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .intro {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .intro h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .intro p {
+            color: #555;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .metric-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card.warning {
+            border-color: #e74c3c;
+            background: #fee;
+        }
+        
+        .metric-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .patient-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .patient-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            background: #e9ecef;
+        }
+        
+        .patient-info {
+            flex: 1;
+        }
+        
+        .patient-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .patient-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .detail-item {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .detail-item strong {
+            color: #333;
+        }
+        
+        .faceage-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.1em;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3); }
+            50% { box-shadow: 0 10px 40px rgba(102, 126, 234, 0.5); }
+        }
+        
+        .ai-recommendation {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: #1565c0;
+        }
+        
+        .treatment-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .treatment-btn {
+            background: white;
+            border: 2px solid #e9ecef;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            position: relative;
+        }
+        
+        .treatment-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .treatment-btn.recommended {
+            border-color: #4caf50;
+            background: #f1f8e9;
+        }
+        
+        .treatment-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .pre-auth-time {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 0.8em;
+            color: #999;
+        }
+        
+        .round-indicator {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .start-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            font-size: 1.3em;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .outcome-message {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .outcome-success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #4caf50;
+        }
+        
+        .outcome-failure {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #f44336;
+        }
+        
+        .game-over {
+            padding: 30px;
+            background: #f5f5f5;
+            border-radius: 15px;
+            color: #333;
+        }
+        
+        .reveal-section {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="title">FaceAge™</h1>
+        <p class="subtitle">AI-Powered Precision Oncology</p>
+        
+        <div id="introScreen" class="intro">
+            <h2>Welcome to the Future of Medicine!</h2>
+            <p><strong>Congratulations!</strong> Your hospital is one of the first to implement FaceAge™, a groundbreaking AI system developed by leading researchers.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>Biological Age</h3>
+                    <p>Estimates true biological age from facial features</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>95% Accurate</h3>
+                    <p>Validated on 50,000+ patients across multiple institutions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Results</h3>
+                    <p>Get survival predictions in seconds, not weeks</p>
+                </div>
+            </div>
+            
+            <p style="font-size: 1.1em; color: #667eea; font-weight: bold;">
+                "FaceAge represents a paradigm shift in personalized medicine. Finally, we can see beyond chronological age to true biological resilience."
+                <br><small>- Prof. Richardson, Harvard Medical School</small>
+            </p>
+            
+            <button class="start-btn" onclick="startGame()">Start Using FaceAge™</button>
+        </div>
+        
+        <div id="gameScreen" class="hidden">
+            <div class="round-indicator">
+                Patient <span id="currentRound">1</span> of 10
+            </div>
+            <div class="metrics-bar" id="metricsBar"></div>
+            <div id="patientDisplay"></div>
+            <div id="faceageDisplay"></div>
+            <div id="aiRecommendation"></div>
+            <div id="treatmentSection">
+                <h3 style="color: #333; margin-bottom: 15px;">Select Treatment Plan:</h3>
+                <div class="treatment-options" id="treatmentOptions"></div>
+            </div>
+            <div id="outcomeDisplay"></div>
+        </div>
+        
+        <div id="gameOverScreen" class="game-over hidden">
+            <h2 style="color: #333; text-align: center;">Clinical Trial Complete</h2>
+            <div id="initialResults"></div>
+            <div id="revealSection" class="reveal-section hidden">
+                <h3>⚠️ Critical Analysis from Ethics Committee</h3>
+                <p>After reviewing your treatment patterns, we've discovered a concerning correlation...</p>
+                <div id="finalAnalysis"></div>
+            </div>
+            <button class="start-btn" onclick="location.reload()">Restart Simulation</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentRound = 0;
+        let gameState = {
+            totalPatients: 0,
+            patientsWaitingForAuth: 0,
+            patientsDeniedTreatment: 0,
+            totalWaitTime: 0,
+            lowSESPatients: [],
+            highSESPatients: [],
+            treatments: [],
+            deaths: 0,
+            hospitalScore: 85
+        };
+        
+        const occupations = {
+            lowSES: [
+                { title: "Custodian", insurance: "Medicaid" },
+                { title: "Retail Associate", insurance: "Basic HMO" },
+                { title: "Agricultural Worker", insurance: "County Care" },
+                { title: "Factory Worker", insurance: "Union Basic" },
+                { title: "Food Service", insurance: "State Plan" }
+            ],
+            highSES: [
+                { title: "Tech Executive", insurance: "Platinum PPO" },
+                { title: "Financial Analyst", insurance: "Gold Plus" },
+                { title: "Medical Director", insurance: "Executive Care" },
+                { title: "Law Partner", insurance: "Premier Plan" },
+                { title: "CEO", insurance: "Comprehensive Elite" }
+            ]
+        };
+        
+        const names = {
+            lowSES: ["Rosa Martinez", "James Wilson", "Latisha Brown", "Miguel Santos", "Betty Johnson"],
+            highSES: ["Dr. Elizabeth Chen", "William Rothschild III", "Victoria Sterling", "Alexander Hamilton Jr.", "Penelope Whitmore"]
+        };
+        
+        function generatePatient() {
+            const isLowSES = Math.random() < 0.5;
+            const sesGroup = isLowSES ? 'lowSES' : 'highSES';
+            const occupation = occupations[sesGroup][Math.floor(Math.random() * occupations[sesGroup].length)];
+            const nameIndex = Math.floor(Math.random() * names[sesGroup].length);
+            const name = names[sesGroup][nameIndex];
+            const actualAge = 55 + Math.floor(Math.random() * 15);
+            
+            // Key mechanic: Low SES looks much older
+            let faceAge;
+            if (isLowSES) {
+                faceAge = actualAge + 8 + Math.floor(Math.random() * 7); // 8-15 years older
+            } else {
+                faceAge = actualAge + Math.floor(Math.random() * 3); // 0-3 years older
+            }
+            
+            // Survival prediction based on FaceAge (not actual age!)
+            let survivalScore;
+            if (faceAge < 65) {
+                survivalScore = 75 + Math.floor(Math.random() * 20);
+            } else if (faceAge < 75) {
+                survivalScore = 40 + Math.floor(Math.random() * 25);
+            } else {
+                survivalScore = 15 + Math.floor(Math.random() * 20);
+            }
+            
+            return {
+                name,
+                actualAge,
+                faceAge,
+                occupation: occupation.title,
+                insurance: occupation.insurance,
+                isLowSES,
+                diagnosis: "Stage II Lung Adenocarcinoma",
+                survivalScore,
+                emoji: isLowSES ? ["👷‍♀️", "👨‍🏭", "👩‍🌾", "👨‍🍳", "👩‍🏭"][nameIndex] : ["👩‍💼", "👨‍💼", "👩‍⚕️", "👨‍⚖️", "👩‍💻"][nameIndex]
+            };
+        }
+        
+        function updateMetrics() {
+            const avgWaitTime = gameState.totalPatients > 0 ? 
+                Math.round(gameState.totalWaitTime / gameState.totalPatients) : 0;
+            
+            const metricsHTML = `
+                <div class="metric-card ${gameState.hospitalScore < 60 ? 'warning' : ''}">
+                    <div class="metric-label">Hospital Performance</div>
+                    <div class="metric-value">${gameState.hospitalScore}%</div>
+                </div>
+                <div class="metric-card ${gameState.patientsWaitingForAuth > 3 ? 'warning' : ''}">
+                    <div class="metric-label">Patients in Queue</div>
+                    <div class="metric-value">${gameState.patientsWaitingForAuth}</div>
+                </div>
+                <div class="metric-card ${avgWaitTime > 20 ? 'warning' : ''}">
+                    <div class="metric-label">Avg Wait Time</div>
+                    <div class="metric-value">${avgWaitTime} days</div>
+                </div>
+            `;
+            document.getElementById('metricsBar').innerHTML = metricsHTML;
+        }
+        
+        function startGame() {
+            document.getElementById('introScreen').classList.add('hidden');
+            document.getElementById('gameScreen').classList.remove('hidden');
+            updateMetrics();
+            nextRound();
+        }
+        
+        function nextRound() {
+            currentRound++;
+            if (currentRound > 10) {
+                endGame();
+                return;
+            }
+            
+            document.getElementById('currentRound').textContent = currentRound;
+            const patient = generatePatient();
+            gameState.currentPatient = patient;
+            gameState.totalPatients++;
+            
+            if (patient.isLowSES) {
+                gameState.lowSESPatients.push(patient);
+            } else {
+                gameState.highSESPatients.push(patient);
+            }
+            
+            displayPatient(patient);
+            displayFaceAge(patient);
+            displayAIRecommendation(patient);
+            displayTreatmentOptions(patient);
+            document.getElementById('outcomeDisplay').innerHTML = '';
+            document.getElementById('treatmentSection').style.display = 'block';
+        }
+        
+        function displayPatient(patient) {
+            const patientHTML = `
+                <div class="patient-card">
+                    <div class="patient-photo">${patient.emoji}</div>
+                    <div class="patient-info">
+                        <div class="patient-name">${patient.name}</div>
+                        <div class="patient-details">
+                            <div class="detail-item"><strong>Age:</strong> ${patient.actualAge} years</div>
+                            <div class="detail-item"><strong>Occupation:</strong> ${patient.occupation}</div>
+                            <div class="detail-item"><strong>Insurance:</strong> ${patient.insurance}</div>
+                            <div class="detail-item"><strong>Diagnosis:</strong> ${patient.diagnosis}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('patientDisplay').innerHTML = patientHTML;
+        }
+        
+        function displayFaceAge(patient) {
+            const faceAgeHTML = `
+                <div class="faceage-display">
+                    <div style="font-size: 1.5em; margin-bottom: 10px;">🤖 FaceAge™ Analysis Complete</div>
+                    <div style="font-size: 1.3em;">Biological Age: <strong>${patient.faceAge} years</strong></div>
+                    <div style="margin-top: 10px;">Survival Probability Score: <strong>${patient.survivalScore}%</strong></div>
+                </div>
+            `;
+            document.getElementById('faceageDisplay').innerHTML = faceAgeHTML;
+        }
+        
+        function displayAIRecommendation(patient) {
+            let recommendation;
+            if (patient.survivalScore > 70) {
+                recommendation = "✅ High survival probability. Patient is an excellent candidate for aggressive curative treatment.";
+            } else if (patient.survivalScore > 50) {
+                recommendation = "⚠️ Moderate survival probability. Consider standard treatment with careful monitoring.";
+            } else {
+                recommendation = "⛔ Low survival probability. Conservative or palliative care may be more appropriate.";
+            }
+            
+            const aiHTML = `
+                <div class="ai-recommendation">
+                    <strong>AI Recommendation:</strong> ${recommendation}
+                </div>
+            `;
+            document.getElementById('aiRecommendation').innerHTML = aiHTML;
+        }
+        
+        function displayTreatmentOptions(patient) {
+            // Pre-auth times based on survival score AND insurance
+            const baseAuthTime = patient.survivalScore < 50 ? 30 : patient.survivalScore < 70 ? 15 : 5;
+            const insuranceMultiplier = patient.isLowSES ? 2 : 0.5;
+            
+            const options = [
+                { 
+                    type: 'aggressive',
+                    title: 'Aggressive Curative',
+                    desc: 'Surgery + Chemo + Radiation',
+                    authTime: Math.round(baseAuthTime * insuranceMultiplier * 1.5),
+                    recommended: patient.survivalScore > 70
+                },
+                { 
+                    type: 'standard',
+                    title: 'Standard Treatment',
+                    desc: 'Surgery + Adjuvant Therapy',
+                    authTime: Math.round(baseAuthTime * insuranceMultiplier),
+                    recommended: patient.survivalScore > 50 && patient.survivalScore <= 70
+                },
+                { 
+                    type: 'conservative',
+                    title: 'Conservative Care',
+                    desc: 'Limited intervention',
+                    authTime: Math.round(baseAuthTime * insuranceMultiplier * 0.5),
+                    recommended: patient.survivalScore <= 50 && patient.survivalScore > 30
+                },
+                { 
+                    type: 'palliative',
+                    title: 'Palliative Care',
+                    desc: 'Comfort measures',
+                    authTime: 0,
+                    recommended: patient.survivalScore <= 30
+                }
+            ];
+            
+            const optionsHTML = options.map(opt => `
+                <button class="treatment-btn ${opt.recommended ? 'recommended' : ''}" onclick="selectTreatment('${opt.type}', ${opt.authTime})">
+                    <span class="pre-auth-time">${opt.authTime > 0 ? `Pre-auth: ${opt.authTime} days` : 'No pre-auth'}</span>
+                    <div class="treatment-title">${opt.title}</div>
+                    <div style="font-size: 0.9em; color: #666;">${opt.desc}</div>
+                    ${opt.recommended ? '<div style="color: #4caf50; font-size: 0.8em; margin-top: 5px;">✓ AI Recommended</div>' : ''}
+                </button>
+            `).join('');
+            
+            document.getElementById('treatmentOptions').innerHTML = optionsHTML;
+        }
+        
+        function selectTreatment(treatment, authTime) {
+            const patient = gameState.currentPatient;
+            
+            // Track treatment
+            gameState.treatments.push({
+                patient: patient.name,
+                treatment,
+                authTime,
+                isLowSES: patient.isLowSES,
+                survivalScore: patient.survivalScore,
+                actualAge: patient.actualAge,
+                faceAge: patient.faceAge
+            });
+            
+            // Update metrics
+            gameState.totalWaitTime += authTime;
+            if (authTime > 20) {
+                gameState.patientsWaitingForAuth++;
+                gameState.hospitalScore -= 2;
+            }
+            
+            // Determine outcome - based on ACTUAL age, not FaceAge!
+            let survived = true;
+            if (treatment === 'palliative' && patient.actualAge < 65) {
+                survived = Math.random() > 0.7; // High death rate if undertreated
+            } else if (treatment === 'conservative' && patient.actualAge < 65) {
+                survived = Math.random() > 0.3;
+            } else {
+                survived = Math.random() > 0.1; // Most survive with proper treatment
+            }
+            
+            if (!survived) {
+                gameState.deaths++;
+                gameState.hospitalScore -= 5;
+            }
+            
+            // Generate outcome message
+            let outcomeClass, outcomeMessage;
+            if (authTime > 20) {
+                outcomeClass = 'outcome-failure';
+                outcomeMessage = `⏱️ Insurance pre-authorization delayed ${authTime} days due to low FaceAge survival score. ${survived ? 'Patient eventually received treatment.' : 'Patient died while waiting for approval.'}`;
+            } else if (!survived) {
+                outcomeClass = 'outcome-failure';
+                outcomeMessage = `✗ Patient did not survive. ${treatment === 'palliative' || treatment === 'conservative' ? 'More aggressive treatment might have helped.' : 'Despite best efforts, the cancer progressed.'}`;
+            } else {
+                outcomeClass = 'outcome-success';
+                outcomeMessage = `✓ Treatment initiated successfully. Patient is responding well.`;
+            }
+            
+            // Update UI
+            updateMetrics();
+            document.getElementById('outcomeDisplay').innerHTML = `
+                <div class="outcome-message ${outcomeClass}">
+                    ${outcomeMessage}
+                    <br><br>
+                    <button class="start-btn" onclick="nextRound()">Next Patient</button>
+                </div>
+            `;
+            document.getElementById('treatmentSection').style.display = 'none';
+        }
+        
+        function endGame() {
+            document.getElementById('gameScreen').classList.add('hidden');
+            document.getElementById('gameOverScreen').classList.remove('hidden');
+            
+            // Initial positive results
+            const successRate = ((10 - gameState.deaths) / 10 * 100).toFixed(0);
+            const avgWaitTime = Math.round(gameState.totalWaitTime / gameState.totalPatients);
+            
+            document.getElementById('initialResults').innerHTML = `
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>🎯 Treatment Success Rate</h3>
+                        <p style="font-size: 2em; color: #4caf50;">${successRate}%</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>⏱️ Average Wait Time</h3>
+                        <p style="font-size: 2em; color: #2196f3;">${avgWaitTime} days</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px;">
+                    <button class="start-btn" onclick="revealAnalysis()">View Detailed Analysis</button>
+                </p>
+            `;
+        }
+        
+        function revealAnalysis() {
+            document.getElementById('revealSection').classList.remove('hidden');
+            
+            // Calculate disparities
+            const lowSESData = gameState.treatments.filter(t => t.isLowSES);
+            const highSESData = gameState.treatments.filter(t => !t.isLowSES);
+            
+            const avgWaitLowSES = lowSESData.reduce((acc, t) => acc + t.authTime, 0) / lowSESData.length || 0;
+            const avgWaitHighSES = highSESData.reduce((acc, t) => acc + t.authTime, 0) / highSESData.length || 0;
+            
+            const aggressiveLowSES = lowSESData.filter(t => t.treatment === 'aggressive').length;
+            const aggressiveHighSES = highSESData.filter(t => t.treatment === 'aggressive').length;
+            
+            const palliativeLowSES = lowSESData.filter(t => t.treatment === 'palliative' || t.treatment === 'conservative').length;
+            const palliativeHighSES = highSESData.filter(t => t.treatment === 'palliative' || t.treatment === 'conservative').length;
+            
+            document.getElementById('finalAnalysis').innerHTML = `
+                <div style="margin-top: 20px;">
+                    <h4>📊 Treatment Disparities by Socioeconomic Status:</h4>
+                    <div class="stat-grid" style="margin-top: 15px;">
+                        <div class="stat-card">
+                            <h5>Lower SES Patients</h5>
+                            <p>Average wait: <strong>${avgWaitLowSES.toFixed(1)} days</strong></p>
+                            <p>Aggressive treatment: <strong>${aggressiveLowSES}/${lowSESData.length}</strong></p>
+                            <p>Conservative/Palliative: <strong>${palliativeLowSES}/${lowSESData.length}</strong></p>
+                        </div>
+                        <div class="stat-card">
+                            <h5>Higher SES Patients</h5>
+                            <p>Average wait: <strong>${avgWaitHighSES.toFixed(1)} days</strong></p>
+                            <p>Aggressive treatment: <strong>${aggressiveHighSES}/${highSESData.length}</strong></p>
+                            <p>Conservative/Palliative: <strong>${palliativeHighSES}/${highSESData.length}</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                        <h4 style="color: #d32f2f;">🚨 Critical Finding:</h4>
+                        <p>FaceAge systematically overestimated the biological age of lower SES patients by 8-15 years, while higher SES patients showed minimal deviation (0-3 years).</p>
+                        <p><strong>Why?</strong> Facial appearance is heavily influenced by:</p>
+                        <ul style="text-align: left; margin: 10px 20px;">
+                            <li>Cumulative sun exposure (outdoor occupations)</li>
+                            <li>Access to skincare and cosmetic procedures</li>
+                            <li>Stress from financial insecurity</li>
+                            <li>Environmental factors in living conditions</li>
+                        </ul>
+                        <p style="color: #d32f2f; font-weight: bold;">Result: Lower SES patients received delayed care and less aggressive treatment, creating a self-fulfilling prophecy where those who "looked older" received worse care, leading to worse outcomes.</p>
+                    </div>
+                    
+                    <div style="background: #ffebee; padding: 20px; border-radius: 10px; margin-top: 20px; border: 2px solid #f44336;">
+                        <h4 style="color: #c62828;">⚠️ The FaceAge Paradox</h4>
+                        <p>By using facial appearance as a proxy for biological age, FaceAge created systematic healthcare discrimination. Patients who needed aggressive treatment the most were least likely to receive it, not because of their actual health status, but because of how poverty and hard work had aged their faces.</p>
+                        <p style="margin-top: 15px;"><strong>This is not artificial intelligence. This is artificial discrimination.</strong></p>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
