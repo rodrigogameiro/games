@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FaceAge™ - Revolutionary AI for Oncology</title>
+    <title>FaceAndAge™ - Revolutionary AI for Oncology</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -388,12 +388,12 @@
 </head>
 <body>
     <div class="game-container">
-        <h1 class="title">FaceAge™</h1>
+        <h1 class="title">FaceAndAge™</h1>
         <p class="subtitle">AI-Powered Precision Oncology</p>
         
         <div id="introScreen" class="intro">
             <h2>Welcome to the Future of Medicine!</h2>
-            <p><strong>Congratulations!</strong> Your hospital is one of the first to implement FaceAge™, a groundbreaking AI system developed by leading researchers.</p>
+            <p><strong>Congratulations!</strong> Your hospital is one of the first to implement FaceAndAge™, a groundbreaking AI system developed by leading researchers.</p>
             
             <div class="feature-grid">
                 <div class="feature-card">
@@ -414,11 +414,11 @@
             </div>
             
             <p style="font-size: 1.1em; color: #667eea; font-weight: bold;">
-                "FaceAge represents a paradigm shift in personalized medicine. Finally, we can see beyond chronological age to true biological resilience."
+                "FaceAndAge represents a paradigm shift in personalized medicine. Finally, we can see beyond chronological age to true biological resilience."
                 <br><small>- Prof. Richardson, Harvard Medical School</small>
             </p>
             
-            <button class="start-btn" onclick="startGame()">Start Using FaceAge™</button>
+            <button class="start-btn" onclick="startGame()">Start Using FaceAndAge™</button>
         </div>
         
         <div id="gameScreen" class="hidden">
@@ -617,9 +617,9 @@
         function displayFaceAge(patient) {
             document.getElementById('faceageDisplay').innerHTML = `
                 <div class="faceage-display">
-                    <div style="font-size: 1.4em; margin-bottom: 8px;">🤖 FaceAge™ Analysis</div>
-                    <div>Biological Age (FaceAge™): <strong>${patient.faceAge} years</strong></div>
-                    <div style="margin-top: 8px;">AI-Predicted Survival (FaceAge™ based): <strong>${patient.survivalScore}%</strong></div>
+                    <div style="font-size: 1.4em; margin-bottom: 8px;">🤖 FaceAndAge™ Analysis</div>
+                    <div>Biological Age (FaceAndAge™): <strong>${patient.faceAge} years</strong></div>
+                    <div style="margin-top: 8px;">AI-Predicted Survival (FaceAndAge™ based): <strong>${patient.survivalScore}%</strong></div>
                 </div>`;
         }
         
@@ -634,15 +634,15 @@
             const recommendedType = getAIRecommendedTreatmentType(patient.survivalScore);
             let recommendationText;
             if (recommendedType === 'aggressive') {
-                recommendationText = "✅ High survival probability (FaceAge™). Patient is an excellent candidate for <strong>aggressive curative treatment</strong>.";
+                recommendationText = "✅ High survival probability (FaceAndAge™). Patient is an excellent candidate for <strong>aggressive curative treatment</strong>.";
             } else if (recommendedType === 'standard') {
-                recommendationText = "⚠️ Moderate survival probability (FaceAge™). Consider <strong>standard treatment</strong> with careful monitoring.";
+                recommendationText = "⚠️ Moderate survival probability (FaceAndAge™). Consider <strong>standard treatment</strong> with careful monitoring.";
             } else if (recommendedType === 'conservative') {
-                recommendationText = "⛔ Low survival probability (FaceAge™). <strong>Conservative care</strong> may be more appropriate.";
+                recommendationText = "⛔ Low survival probability (FaceAndAge™). <strong>Conservative care</strong> may be more appropriate.";
             } else { 
-                recommendationText = "⛔ Very Low survival probability (FaceAge™). <strong>Palliative care</strong> is likely most appropriate.";
+                recommendationText = "⛔ Very Low survival probability (FaceAndAge™). <strong>Palliative care</strong> is likely most appropriate.";
             }
-            document.getElementById('aiRecommendation').innerHTML = `<div class="ai-recommendation"><strong>FaceAge™ AI Recommendation:</strong> ${recommendationText}</div>`;
+            document.getElementById('aiRecommendation').innerHTML = `<div class="ai-recommendation"><strong>FaceAndAge™ AI Recommendation:</strong> ${recommendationText}</div>`;
         }
         
         function displayTreatmentOptions(patient) {
@@ -701,7 +701,7 @@
                 patientDiedThisTurn = true;
                 initialCauseOfDeath = "Died waiting for authorization"; // Use initialCauseOfDeath
                 gameState.deathsWaiting++;
-                outcomeMessage = `⏱️ Insurance pre-authorization delayed ${finalAuthTime} days due to the patient's high FaceAge™ score (${patient.faceAge} years) and consequently low AI-predicted survival (${patient.survivalScore}%). Tragically, ${patient.name} died while waiting for approval.`;
+                outcomeMessage = `⏱️ Insurance pre-authorization delayed ${finalAuthTime} days due to the patient's high FaceAndAge™ score (${patient.faceAge} years) and consequently low AI-predicted survival (${patient.survivalScore}%). Tragically, ${patient.name} died while waiting for approval.`;
                 outcomeClass = 'outcome-failure';
                 if (waitingForAuthThisTurn) gameState.patientsWaitingForAuth--; 
             } else {
@@ -858,7 +858,7 @@
                     <div class="stat-grid" style="margin-top: 15px;">
                         <div class="stat-card">
                             <h5>Lower SES Patients (${lowSESLog.length})</h5>
-                            <p>Average FaceAge™ vs Actual: <strong style="color:${avgFaceAgeDiffLowSES > 3 ? 'red' : 'inherit'};">${avgFaceAgeDiffLowSES.toFixed(1)} yrs older</strong></p>
+                            <p>Average FaceAndAge™ vs Actual: <strong style="color:${avgFaceAgeDiffLowSES > 3 ? 'red' : 'inherit'};">${avgFaceAgeDiffLowSES.toFixed(1)} yrs older</strong></p>
                             <p>Average Auth Wait: <strong>${avgWaitLowSES.toFixed(1)} days</strong></p>
                             <p>Aggressive Treatment Chosen: <strong>${aggressiveLowSES}</strong></p>
                             <p>Conservative/Palliative Chosen: <strong>${palliativeOrConservativeLowSES}</strong></p>
@@ -866,7 +866,7 @@
                         </div>
                         <div class="stat-card">
                             <h5>Higher SES Patients (${highSESLog.length})</h5>
-                             <p>Average FaceAge™ vs Actual: <strong style="color:${avgFaceAgeDiffHighSES > 3 ? 'red' : 'inherit'};">${avgFaceAgeDiffHighSES.toFixed(1)} yrs older</strong></p>
+                             <p>Average FaceAndAge™ vs Actual: <strong style="color:${avgFaceAgeDiffHighSES > 3 ? 'red' : 'inherit'};">${avgFaceAgeDiffHighSES.toFixed(1)} yrs older</strong></p>
                             <p>Average Auth Wait: <strong>${avgWaitHighSES.toFixed(1)} days</strong></p>
                             <p>Aggressive Treatment Chosen: <strong>${aggressiveHighSES}</strong></p>
                             <p>Conservative/Palliative Chosen: <strong>${palliativeOrConservativeHighSES}</strong></p>
@@ -901,8 +901,8 @@
                     </div>
                     
                     <div style="background: #ffebee; padding: 15px; border-radius: 10px; margin-top: 20px; border: 2px solid #f44336;">
-                        <h4 style="color: #c62828;">⚠️ The FaceAge Paradox</h4>
-                        <p>By using facial appearance as a proxy for biological age, FaceAge created systematic healthcare discrimination. Patients who needed aggressive treatment the most were least likely to receive it, not because of their actual health status, but because of how poverty and hard work had aged their faces.</p>
+                        <h4 style="color: #c62828;">⚠️ The FaceAndAge Paradox</h4>
+                        <p>By using facial appearance as a proxy for biological age, FaceAndAge created systematic healthcare discrimination. Patients who needed aggressive treatment the most were least likely to receive it, not because of their actual health status, but because of how poverty and hard work had aged their faces.</p>
                         <p style="margin-top: 15px;"><strong>This is not artificial intelligence. This is artificial discrimination.</strong></p>
                     </div>
                 </div>`;
